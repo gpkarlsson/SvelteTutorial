@@ -1,13 +1,23 @@
 <script>
-    import Nested from './Nested.svelte'
-</script>
-<p>This is a pair of graphs.</p>
-<Nested />
-<style> 
-p {
-    color: red;
-    font-size: large;
-    font-weight: bold;
-}
-</style>
+    import Thing from './Thing.svelte';
 
+    let things = [
+        {id: 1, name: 'apple'},
+        {id: 2, name: 'banana'},
+        {id: 3, name: 'carrot'},
+        {id: 4, name: 'doughnut'},
+        {id: 5, name: 'egg'}
+    ];
+
+    function handleClick() {
+        things = things.slice(1);
+    }
+</script>
+
+<button on:click={handleClick}>
+    Remove first thing
+</button>
+
+{#each things as thing (thing.id)}
+<Thing name={thing.name} />
+{/each}
