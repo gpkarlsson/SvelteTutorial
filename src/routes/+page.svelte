@@ -1,5 +1,13 @@
 <script>
-    let name = 'Svelte';
+    import Nested from './Nested.svelte'
 </script>
+<p>This is a pair of graphs.</p>
+<Nested />
+<style> 
+p {
+    color: red;
+    font-size: large;
+    font-weight: bold;
+}
+</style>
 
-<h1>Hello {name.toUpperCase()}!</h1>
